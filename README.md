@@ -6,7 +6,8 @@
 
 *Transform a $60 Raspberry Pi into an autonomous AI agent capable of operating any computer, phone, or device — just like a human would.*
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![License: AGPL-3.0](https://img.shields.io/badge/License-AGPL%203.0-blue.svg)](LICENSE)
+[![Commercial License](https://img.shields.io/badge/Commercial-Available-green.svg)](https://gumroad.com/skynetpi)
 [![Platform](https://img.shields.io/badge/Platform-Raspberry%20Pi%205-red.svg)]()
 [![AI](https://img.shields.io/badge/AI-Claude%20Powered-blue.svg)]()
 
@@ -393,7 +394,16 @@ git push origin feature/your-feature
 
 ## 📄 License
 
-MIT License — Use freely, but remember the ethical guidelines above.
+**Dual Licensed:**
+
+| Use Case | License | Cost |
+|----------|---------|------|
+| Personal, Educational, Open Source | AGPL-3.0 | Free |
+| Commercial, Closed-source | Commercial | [Pricing](https://gumroad.com/skynetpi) |
+
+The AGPL license requires you to publish your source code if you use SkynetPi in a network service. For commercial use without this obligation, purchase a commercial license.
+
+📧 Commercial inquiries: **comercial@skynetpi.com**
 
 ---
 
