@@ -12,3 +12,6 @@ Thumbs.db
 *.key
 .env
 *api_key*
+
+# Allow docs images
+!docs/*.png

@@ -1,5 +1,7 @@
 <div align="center">
 
+<img src="docs/hero.png" alt="SkynetPi" width="800">
+
 # 🤖 SkynetPi
 
 ### Your Personal AI That Can See and Control Any Screen
