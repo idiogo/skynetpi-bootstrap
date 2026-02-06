@@ -318,10 +318,23 @@ python -m ram_kvm_ai.viewer
 
 ---
 
+## 🔄 Updating
+
+```bash
+# Update OpenClaw
+sudo npm update -g openclaw
+
+# Update RAM KVM AI
+cd ~/ram-kvm-ai && git pull
+
+# Update bootstrap configs (keeps personal files)
+cd ~/skynetpi-bootstrap && git pull
+./scripts/update-config.sh
+```
+
 ## 📖 Documentation
 
 - [Hardware Setup Guide](hardware/README.md)
-- [Configuration Options](docs/configuration.md)
 - [RAM KVM AI (Device Control)](https://github.com/idiogo/ram-kvm-ai)
 - [OpenClaw Documentation](https://docs.openclaw.ai)
 

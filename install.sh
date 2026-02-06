@@ -223,8 +223,17 @@ CONFIG
 
 echo "   Config created at ~/.openclaw/config.yaml"
 
-# Step 6: Setup systemd service
-echo -e "${BLUE}[6/6] 🚀 Setting up service...${NC}"
+# Step 6: Install RAM KVM AI
+echo -e "${BLUE}[6/7] 🎮 Installing RAM KVM AI...${NC}"
+if [ ! -d "$HOME/ram-kvm-ai" ]; then
+    git clone https://github.com/idiogo/ram-kvm-ai.git "$HOME/ram-kvm-ai"
+fi
+cd "$HOME/ram-kvm-ai"
+pip install -q -r requirements.txt 2>/dev/null || pip install anthropic opencv-python numpy
+echo "   RAM KVM AI installed at ~/ram-kvm-ai"
+
+# Step 7: Setup systemd service
+echo -e "${BLUE}[7/7] 🚀 Setting up service...${NC}"
 
 # Enable linger for user services
 sudo loginctl enable-linger "$USER"
