@@ -403,7 +403,7 @@ git push origin feature/your-feature
 
 The AGPL license requires you to publish your source code if you use SkynetPi in a network service. For commercial use without this obligation, purchase a commercial license.
 
-📧 Commercial inquiries: **comercial@skynetpi.com**
+📧 Commercial inquiries: **skynetpi-commercial@idiogo.com.br**
 
 ---
 

@@ -130,7 +130,7 @@ A: No! The open source version (AGPL) is free for personal use.
 A: Yes! Use the open source version. This license just removes the AGPL obligations for commercial use.
 
 **Q: What if I need custom development?**
-A: Contact us at comercial@skynetpi.com for consulting.
+A: Contact us at skynetpi-commercial@idiogo.com.br for consulting.
 
 ---
 
@@ -141,4 +141,4 @@ A: Contact us at comercial@skynetpi.com for consulting.
 3. Clone from GitHub
 4. Build your product!
 
-Questions? Email **comercial@skynetpi.com**
+Questions? Email **skynetpi-commercial@idiogo.com.br**
