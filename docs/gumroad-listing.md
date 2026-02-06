@@ -3,13 +3,16 @@
 ## Product Title
 SkynetPi Commercial License - AI That Controls Any Screen
 
-## Pricing Tiers
+## Pricing
 
-| Tier | Team Size | Price |
-|------|-----------|-------|
-| Startup | ≤5 employees | $199/year |
-| Business | ≤50 employees | $499/year |
-| Enterprise | Unlimited | $1,499/year |
+**$999** — One-time purchase, covers entire organization
+
+Includes:
+- skynetpi-bootstrap
+- ram-kvm-ai (device control engine)
+- 1 year priority support
+
+Purchase: https://idiogo.gumroad.com/l/skynetpi
 
 ## Short Description (preview)
 

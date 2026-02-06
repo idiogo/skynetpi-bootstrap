@@ -7,7 +7,7 @@
 *Transform a $60 Raspberry Pi into an autonomous AI agent capable of operating any computer, phone, or device — just like a human would.*
 
 [![License: AGPL-3.0](https://img.shields.io/badge/License-AGPL%203.0-blue.svg)](LICENSE)
-[![Commercial License](https://img.shields.io/badge/Commercial-Available-green.svg)](https://gumroad.com/skynetpi)
+[![Commercial License](https://img.shields.io/badge/Commercial-$999-green.svg)](https://idiogo.gumroad.com/l/skynetpi)
 [![Platform](https://img.shields.io/badge/Platform-Raspberry%20Pi%205-red.svg)]()
 [![AI](https://img.shields.io/badge/AI-Claude%20Powered-blue.svg)]()
 
@@ -399,11 +399,16 @@ git push origin feature/your-feature
 | Use Case | License | Cost |
 |----------|---------|------|
 | Personal, Educational, Open Source | AGPL-3.0 | Free |
-| Commercial, Closed-source | Commercial | [Pricing](https://gumroad.com/skynetpi) |
+| Commercial, Closed-source | [Commercial License](https://idiogo.gumroad.com/l/skynetpi) | $999 |
 
 The AGPL license requires you to publish your source code if you use SkynetPi in a network service. For commercial use without this obligation, purchase a commercial license.
 
-📧 Commercial inquiries: **skynetpi-commercial@idiogo.com.br**
+**The commercial license covers the entire SkynetPi project**, including:
+- skynetpi-bootstrap (this repo)
+- [ram-kvm-ai](https://github.com/idiogo/ram-kvm-ai) (device control engine)
+
+🛒 **Purchase:** [idiogo.gumroad.com/l/skynetpi](https://idiogo.gumroad.com/l/skynetpi)
+📧 **Questions:** skynetpi-commercial@idiogo.com.br
 
 ---
 
