@@ -173,6 +173,11 @@ main {
   color: #ff9500;
 }
 
+.log-entry.tweet {
+  color: #00d4ff;
+  font-style: italic;
+}
+
 .log-entry.error {
   color: var(--error);
 }

@@ -126,7 +126,14 @@ async function fetchEvents() {
           lastEventTime = event.time;
           
           // Update current action display
-          if (event.type === 'kvm') {
+          if (event.type === 'tweet') {
+            // Status tweet - truncate to 3 lines (~90 chars)
+            let text = event.text;
+            if (text.length > 90) text = text.substring(0, 87) + '...';
+            setAction('💭', text.substring(0, 30) + (text.length > 30 ? '...' : ''));
+            setStatus('busy');
+            addLog(event.icon, text, event.time, 'tweet');
+          } else if (event.type === 'kvm') {
             setAction(event.icon, event.text);
             setStatus('busy');
             addLog(event.icon, event.text, event.time, 'kvm');
