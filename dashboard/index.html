@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=480, height=320, initial-scale=1.0, user-scalable=no">
+  <title>SkynetPi Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app">
+    <header>
+      <div class="status-dot" id="status-dot"></div>
+      <span class="title">SkynetPi</span>
+      <div class="header-info">
+        <span class="info-item" id="session">main</span>
+        <span class="info-sep">•</span>
+        <span class="info-item" id="channel">WhatsApp</span>
+      </div>
+      <span class="time" id="clock">--:--</span>
+    </header>
+    
+    <main>
+      <div class="current-action" id="current-action">
+        <div class="action-icon" id="action-icon">🤖</div>
+        <div class="action-text" id="action-text">Conectando...</div>
+      </div>
+      
+      <div class="log-container">
+        <div class="log" id="log"></div>
+      </div>
+    </main>
+    
+    <footer>
+      <div class="stats">
+        <span id="uptime">⏱️ --</span>
+        <span id="messages">💬 0</span>
+      </div>
+    </footer>
+  </div>
+  
+  <script src="dashboard.js"></script>
+</body>
+</html>

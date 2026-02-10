@@ -319,6 +319,35 @@ pip install opencv-python
 python -m ram_kvm_ai.viewer
 ```
 
+### Optional Modules
+
+These modules are installed separately and are completely optional:
+
+#### 📺 3.5" TFT LCD Display (MHS35)
+
+Install drivers for a 3.5" LCD touchscreen:
+
+```bash
+./scripts/install-tft.sh
+```
+
+> ⚠️ **Warning:** This will disable HDMI output! The Pi will reboot automatically.
+> To restore HDMI: `cd ~/LCD-show && sudo ./LCD-hdmi`
+
+#### 📊 Status Dashboard
+
+A real-time dashboard showing what the AI is doing (optimized for 480x320 LCD):
+
+```bash
+./scripts/install-dashboard.sh
+```
+
+Features:
+- Shows tool calls, messages, KVM events in real-time
+- Auto-starts on boot
+- Desktop shortcut for manual launch
+- KVM events (keyboard, mouse, screen capture) highlighted in orange
+
 ---
 
 ## 🔄 Updating
