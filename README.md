@@ -348,6 +348,45 @@ Features:
 - Desktop shortcut for manual launch
 - KVM events (keyboard, mouse, screen capture) highlighted in orange
 
+#### 🎮 USB HID Gadget (KVM Control)
+
+Turn your Pi into a USB keyboard/mouse to control other devices:
+
+```bash
+./scripts/install-hid.sh
+```
+
+After reboot:
+- Connect Pi's USB-C port to target device (Mac, iPhone, PC)
+- Pi appears as a keyboard + mouse
+- Use `hid-control.py` to send keystrokes and mouse movements
+
+```bash
+# Examples
+./scripts/hid-control.py type "Hello World"
+./scripts/hid-control.py spotlight  # Cmd+Space on Mac
+./scripts/hid-control.py click
+./scripts/hid-control.py move 50 -30
+```
+
+> **Tip:** For iPhone, enable AssistiveTouch (Settings > Accessibility > Touch)
+
+#### 📹 HDMI Capture
+
+To see what's on the target device's screen, you need an HDMI capture card:
+
+**Recommended:** MACROSILICON USB 3.0 HDMI Capture (~$15-30)
+
+```bash
+# Check if capture card is detected
+v4l2-ctl --list-devices
+
+# Capture a frame
+ffmpeg -f v4l2 -video_size 1920x1080 -i /dev/video0 -frames:v 1 screen.jpg
+```
+
+For iPhone/iPad HDMI output, you'll need a Lightning/USB-C to HDMI adapter.
+
 ---
 
 ## 🔄 Updating
