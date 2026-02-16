@@ -193,13 +193,62 @@ footer {
   padding-top: 6px;
   border-top: 1px solid #222;
   flex-shrink: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .stats {
   display: flex;
-  justify-content: space-between;
+  gap: 16px;
   font-size: 11px;
   color: var(--text-dim);
+}
+
+.rotate-btn {
+  background: var(--bg-card);
+  border: 1px solid #333;
+  border-radius: 6px;
+  color: var(--text-dim);
+  font-size: 14px;
+  width: 28px;
+  height: 24px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.rotate-btn:active {
+  background: #222;
+  color: var(--accent);
+  transform: scale(0.95);
+}
+
+/* Rotation states */
+body.rotated-90 #app {
+  transform: rotate(90deg);
+  transform-origin: center center;
+  width: 320px;
+  height: 480px;
+  position: absolute;
+  left: 80px;
+  top: -80px;
+}
+
+body.rotated-180 #app {
+  transform: rotate(180deg);
+}
+
+body.rotated-270 #app {
+  transform: rotate(270deg);
+  transform-origin: center center;
+  width: 320px;
+  height: 480px;
+  position: absolute;
+  left: 80px;
+  top: -80px;
 }
 
 /* Scrollbar */

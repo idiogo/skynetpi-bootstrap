@@ -190,5 +190,34 @@ function init() {
 
 window.addEventListener('load', init);
 
-// Touch to refresh
-document.body.addEventListener('click', fetchEvents);
+// Touch to refresh (but not on rotate button)
+document.body.addEventListener('click', (e) => {
+  if (e.target.id !== 'rotate-btn') {
+    fetchEvents();
+  }
+});
+
+// Rotation control
+const ROTATIONS = ['', 'rotated-90', 'rotated-180', 'rotated-270'];
+let currentRotation = parseInt(localStorage.getItem('dashboardRotation') || '0');
+
+function applyRotation() {
+  // Remove all rotation classes
+  ROTATIONS.forEach(cls => {
+    if (cls) document.body.classList.remove(cls);
+  });
+  // Apply current rotation
+  if (ROTATIONS[currentRotation]) {
+    document.body.classList.add(ROTATIONS[currentRotation]);
+  }
+  localStorage.setItem('dashboardRotation', currentRotation.toString());
+}
+
+// Apply saved rotation on load
+applyRotation();
+
+// Rotate button handler
+document.getElementById('rotate-btn').addEventListener('click', () => {
+  currentRotation = (currentRotation + 1) % 4;
+  applyRotation();
+});
