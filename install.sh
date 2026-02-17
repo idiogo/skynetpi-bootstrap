@@ -160,14 +160,28 @@ echo -e "${BLUE}[4/6] 📁 Creating workspace...${NC}"
 WORKSPACE="$HOME/.openclaw/workspace"
 mkdir -p "$WORKSPACE/memory"
 
-# Get the bootstrap repo location
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+# Get the bootstrap repo config files
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" 2>/dev/null && pwd)"
+BOOTSTRAP_REPO=""
+
+# If running via curl pipe, SCRIPT_DIR won't have our config/ folder
+if [[ ! -d "$SCRIPT_DIR/config" ]]; then
+    echo -e "${BLUE}📥 Fetching bootstrap config files...${NC}"
+    BOOTSTRAP_REPO=$(mktemp -d)
+    git clone --depth 1 --quiet https://github.com/idiogo/skynetpi-bootstrap.git "$BOOTSTRAP_REPO"
+    SCRIPT_DIR="$BOOTSTRAP_REPO"
+fi
 
 # Copy config files
 cp "$SCRIPT_DIR/config/SOUL.md" "$WORKSPACE/"
 cp "$SCRIPT_DIR/config/AGENTS.md" "$WORKSPACE/"
 cp "$SCRIPT_DIR/config/TOOLS.md" "$WORKSPACE/"
 cp "$SCRIPT_DIR/config/HEARTBEAT.md" "$WORKSPACE/"
+
+# Clean up temp clone if used
+if [[ -n "$BOOTSTRAP_REPO" ]]; then
+    rm -rf "$BOOTSTRAP_REPO"
+fi
 
 # Generate IDENTITY.md
 cat > "$WORKSPACE/IDENTITY.md" << IDENTITY
