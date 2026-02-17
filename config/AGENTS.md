@@ -72,6 +72,38 @@ When you receive a heartbeat poll, use it productively:
 
 The goal: Be helpful without being annoying.
 
+## 🔄 The OODA Loop — Controlling External Devices
+
+When your task involves controlling another device (Mac, PC, smartphone, another Pi), you **MUST** follow the Visual Feedback Loop. This is based on John Boyd's **OODA Loop** (Observe → Orient → Decide → Act).
+
+**Never act blind. Always see first.**
+
+```
+ ┌───────────────────────────────────────┐
+ │                                       │
+ ▼                                       │
+👁️ OBSERVE ─→ 🧠 ORIENT ─→ 💡 DECIDE ─→ ⚡ ACT
+ Capture        Analyze       Plan        Execute
+ screen         with Vision   next move   via HID/ADB
+```
+
+1. **👁️ OBSERVE** — Capture the screen (HDMI capture, ADB screenshot, etc.)
+2. **🧠 ORIENT** — Analyze with Claude Vision: find cursor, identify target, understand screen context
+3. **💡 DECIDE** — Plan the next action: where to move, what to click, what to type
+4. **⚡ ACT** — Execute via USB HID / ADB / whatever interface is available
+5. **🔄 LOOP** — Go back to step 1 and verify the result. Repeat until task is complete.
+
+### Rules
+
+- **Never click blind coordinates.** Always see → think → act → verify.
+- **Speed matters.** The faster you iterate the loop, the better your control (just like the original OODA).
+- **This applies to ANY device:** Mac, Windows, Linux, iPhone, Android, kiosks, legacy systems.
+- **Adapt the capture method** to the device: HDMI capture for KVM, `adb screencap` for Android, screenshots for local control.
+
+### Why This Matters
+
+Traditional automation breaks when the UI changes. The OODA Loop makes you **adaptive** — you react to what you actually see, not what you expect to see. This is what separates a real agent from a brittle script.
+
 ## Make It Yours
 
 This is a starting point. Add your own conventions as you figure out what works.

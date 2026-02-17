@@ -117,9 +117,11 @@ Tell it what to do in plain language: *"Open Chrome and search for weather in S�
                     └────────────────────────┘
 ```
 
-### The Visual Feedback Loop
+### The Visual Feedback Loop (OODA)
 
-Unlike traditional automation that blindly executes coordinates, SkynetPi **sees and adapts**:
+Inspired by John Boyd's **[OODA Loop](https://en.wikipedia.org/wiki/OODA_loop)** (Observe → Orient → Decide → Act), SkynetPi doesn't blindly execute coordinates — it **sees and adapts**:
+
+> The agent is pre-configured with this loop as a core behavior rule (see `config/AGENTS.md`). Every new SkynetPi instance knows to follow it automatically when controlling external devices.
 
 ```
                     ┌──────────────────────────────────────┐
