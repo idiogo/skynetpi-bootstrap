@@ -98,8 +98,8 @@ Tell it what to do in plain language: *"Open Chrome and search for weather in S�
 │  │         │            │             │               │              │  │
 │  │         ▼            ▼             ▼               │              │  │
 │  │   ┌──────────┐  ┌─────────┐  ┌─────────┐          │              │  │
-│  │   │ Channel  │  │  HDMI   │  │   USB   │          │              │  │
-│  │   │   Bot    │  │ Capture │  │   HID   │◀─────────┘              │  │
+│  │   │ Message  │  │  HDMI   │  │   USB   │          │              │  │
+│  │   │ Channel  │  │ Capture │  │   HID   │◀─────────┘              │  │
 │  │   └──────────┘  └────┬────┘  └────┬────┘                         │  │
 │  │                      │            │                               │  │
 │  └──────────────────────┼────────────┼───────────────────────────────┘  │
@@ -166,8 +166,8 @@ Unlike traditional automation that blindly executes coordinates, SkynetPi **sees
 
 ```
 ┌─────────┐         ┌─────────┐         ┌─────────┐         ┌─────────┐
-│   You   │         │ Channel │         │SkynetPi │         │ Target  │
-│         │         │         │         │   Pi    │         │ Device  │
+│   You   │         │ Message │         │SkynetPi │         │ Target  │
+│         │         │ Channel │         │   Pi    │         │ Device  │
 └────┬────┘         └────┬────┘         └────┬────┘         └────┬────┘
      │                   │                   │                   │
      │  "Click Settings" │                   │                   │
@@ -251,8 +251,8 @@ curl -sL https://raw.githubusercontent.com/idiogo/skynetpi-bootstrap/main/instal
 The installer will ask for:
 1. 🤖 Bot name
 2. 👤 Your name  
-3. 📱 Your phone number (for WhatsApp/Telegram) or channel credentials
-4. 🔑 Anthropic API key
+3. 📱 Whether to set up a message channel now (WhatsApp/Telegram) or use the built-in web chat — you can always add a channel later
+4. 🔑 API key for your LLM provider
 5. 🌍 Timezone
 
 ### After Installation
