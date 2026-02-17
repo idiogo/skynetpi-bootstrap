@@ -72,14 +72,14 @@ prompt() {
     fi
     
     if [ "$is_secret" = true ]; then
-        read -sp "$prompt_text" value
+        read -sp "$prompt_text" value < /dev/tty
         echo ""
     else
         if [ -n "$default" ]; then
-            read -p "$prompt_text [$default]: " value
+            read -p "$prompt_text [$default]: " value < /dev/tty
             value=${value:-$default}
         else
-            read -p "$prompt_text: " value
+            read -p "$prompt_text: " value < /dev/tty
         fi
     fi
     
@@ -102,7 +102,7 @@ echo ""
 echo "   1) Set up WhatsApp/Telegram now"
 echo "   2) Use web chat for now (configure channels later)"
 echo ""
-read -p "   Choose [1/2] (default: 2): " CHANNEL_CHOICE
+read -p "   Choose [1/2] (default: 2): " CHANNEL_CHOICE < /dev/tty
 CHANNEL_CHOICE="${CHANNEL_CHOICE:-2}"
 
 OWNER_PHONE=""
@@ -127,7 +127,7 @@ echo "   API key:   ${API_KEY:0:10}..."
 echo ""
 
 if [ "$SKIP_PROMPTS" != true ]; then
-    read -p "Continue? [Y/n]: " confirm
+    read -p "Continue? [Y/n]: " confirm < /dev/tty
     if [[ "$confirm" =~ ^[Nn] ]]; then
         echo "Aborted."
         exit 1
