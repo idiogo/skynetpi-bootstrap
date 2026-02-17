@@ -40,7 +40,7 @@ while [[ $# -gt 0 ]]; do
             echo "Options:"
             echo "  --name NAME        Bot name (default: SkynetPi)"
             echo "  --owner NAME       Owner's name"
-            echo "  --phone PHONE      Owner's WhatsApp number (+5511...)"
+            echo "  --phone PHONE      Phone number for message channel (optional, +5511...)"
             echo "  --api-key KEY      Anthropic API key"
             echo "  --timezone TZ      Timezone (default: America/Sao_Paulo)"
             echo "  --skip-prompts     Don't ask questions (use defaults/args)"
@@ -92,7 +92,24 @@ echo ""
 
 prompt BOT_NAME "Bot name" "$DEFAULT_BOT_NAME"
 prompt OWNER_NAME "Your name" ""
-prompt OWNER_PHONE "Your WhatsApp number (e.g., +5511999999999)" ""
+
+# Ask if user wants to set up a message channel now or use web chat
+echo ""
+echo -e "${YELLOW}📱 Message Channel Setup${NC}"
+echo "   You can chat with your bot via a message channel (WhatsApp, Telegram, etc.)"
+echo "   or use the built-in web chat. Channels can be configured later."
+echo ""
+echo "   1) Set up WhatsApp/Telegram now"
+echo "   2) Use web chat for now (configure channels later)"
+echo ""
+read -p "   Choose [1/2] (default: 2): " CHANNEL_CHOICE
+CHANNEL_CHOICE="${CHANNEL_CHOICE:-2}"
+
+OWNER_PHONE=""
+if [[ "$CHANNEL_CHOICE" == "1" ]]; then
+    prompt OWNER_PHONE "Your phone number (e.g., +5511999999999)" ""
+fi
+
 prompt API_KEY "Anthropic API key (sk-ant-...)" "" true
 prompt TIMEZONE "Timezone" "$DEFAULT_TIMEZONE"
 
@@ -100,7 +117,11 @@ echo ""
 echo -e "${BLUE}📋 Configuration:${NC}"
 echo "   Bot name:  $BOT_NAME"
 echo "   Owner:     $OWNER_NAME"
+if [[ -n "$OWNER_PHONE" ]]; then
 echo "   Phone:     $OWNER_PHONE"
+else
+echo "   Channel:   Web chat (configure messaging later)"
+fi
 echo "   Timezone:  $TIMEZONE"
 echo "   API key:   ${API_KEY:0:10}..."
 echo ""
@@ -171,7 +192,7 @@ cat > "$WORKSPACE/USER.md" << USER
 - **What to call them:** $(echo $OWNER_NAME | cut -d' ' -f1)
 - **Pronouns:** (a definir)
 - **Timezone:** $TIMEZONE
-- **WhatsApp:** $OWNER_PHONE
+$(if [[ -n "$OWNER_PHONE" ]]; then echo "- **Phone:** $OWNER_PHONE"; fi)
 USER
 
 # Generate initial memory
@@ -206,9 +227,9 @@ gateway:
   # Workspace
   workspace: $WORKSPACE
   
-  # WhatsApp
+  # Message channel (optional — web chat works without any channel)
   whatsapp:
-    enabled: true
+    enabled: $(if [[ -n "$OWNER_PHONE" ]]; then echo "true"; else echo "false"; fi)
     ownerNumbers:
       - "$OWNER_PHONE"
   
@@ -271,13 +292,25 @@ echo -e "${GREEN}║   ✅ Installation complete!                               
 echo -e "${GREEN}║                                                           ║${NC}"
 echo -e "${GREEN}╚═══════════════════════════════════════════════════════════╝${NC}"
 echo ""
+if [[ -n "$OWNER_PHONE" ]]; then
 echo -e "${YELLOW}📱 Next step: Link WhatsApp${NC}"
 echo ""
-echo "   Run this command and scan the QR code with WhatsApp:"
+echo "   Run this command and scan the QR code:"
 echo ""
 echo -e "   ${BLUE}openclaw whatsapp link${NC}"
 echo ""
 echo "   After linking, send a message to your bot!"
+else
+echo -e "${YELLOW}💬 Next step: Open the web chat${NC}"
+echo ""
+echo "   Start chatting right away:"
+echo ""
+echo -e "   ${BLUE}openclaw dashboard${NC}"
+echo ""
+echo "   To add a message channel later (WhatsApp, Telegram, etc.):"
+echo ""
+echo -e "   ${BLUE}openclaw configure${NC}"
+fi
 echo ""
 echo -e "${BLUE}Useful commands:${NC}"
 echo "   openclaw status        - Check status"
