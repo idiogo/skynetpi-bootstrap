@@ -11,7 +11,7 @@
 [![License: AGPL-3.0](https://img.shields.io/badge/License-AGPL%203.0-blue.svg)](LICENSE)
 [![Commercial License](https://img.shields.io/badge/Commercial-$999-green.svg)](https://idiogo.gumroad.com/l/skynetpi)
 [![Platform](https://img.shields.io/badge/Platform-Raspberry%20Pi%205-red.svg)]()
-[![AI](https://img.shields.io/badge/AI-Claude%20Powered-blue.svg)]()
+[![AI](https://img.shields.io/badge/AI-Claude%20Opus%20Recommended-blue.svg)]()
 
 [Features](#-features) • [How It Works](#-how-it-works) • [Quick Start](#-quick-start) • [Use Cases](#-use-cases) • [Hardware](#-hardware)
 
@@ -98,7 +98,7 @@ Tell it what to do in plain language: *"Open Chrome and search for weather in S�
 │  │         │            │             │               │              │  │
 │  │         ▼            ▼             ▼               │              │  │
 │  │   ┌──────────┐  ┌─────────┐  ┌─────────┐          │              │  │
-│  │   │ WhatsApp │  │  HDMI   │  │   USB   │          │              │  │
+│  │   │ Channel  │  │  HDMI   │  │   USB   │          │              │  │
 │  │   │   Bot    │  │ Capture │  │   HID   │◀─────────┘              │  │
 │  │   └──────────┘  └────┬────┘  └────┬────┘                         │  │
 │  │                      │            │                               │  │
@@ -166,7 +166,7 @@ Unlike traditional automation that blindly executes coordinates, SkynetPi **sees
 
 ```
 ┌─────────┐         ┌─────────┐         ┌─────────┐         ┌─────────┐
-│   You   │         │WhatsApp │         │SkynetPi │         │ Target  │
+│   You   │         │ Channel │         │SkynetPi │         │ Target  │
 │         │         │         │         │   Pi    │         │ Device  │
 └────┬────┘         └────┬────┘         └────┬────┘         └────┬────┘
      │                   │                   │                   │
@@ -234,7 +234,13 @@ Unlike traditional automation that blindly executes coordinates, SkynetPi **sees
 - Raspberry Pi 5 (4GB+ recommended)
 - microSD card (32GB+) with Raspberry Pi OS
 - Internet connection
-- Anthropic API key ([get one here](https://console.anthropic.com/))
+- An LLM API key (see model recommendations below)
+
+### Model Recommendations
+
+In our testing, **Claude Opus** (by Anthropic) delivers the best performance for SkynetPi — especially for vision-based device control, complex reasoning, and agentic tasks. We recommend starting with it.
+
+That said, OpenClaw supports multiple model providers (Anthropic, OpenAI, Google, and others). Feel free to experiment with different providers and models to find what works best for your use case and budget. You can change the model at any time in your OpenClaw configuration.
 
 ### One-Command Install
 
@@ -245,15 +251,16 @@ curl -sL https://raw.githubusercontent.com/idiogo/skynetpi-bootstrap/main/instal
 The installer will ask for:
 1. 🤖 Bot name
 2. 👤 Your name  
-3. 📱 Your WhatsApp number
+3. 📱 Your phone number (for WhatsApp/Telegram) or channel credentials
 4. 🔑 Anthropic API key
 5. 🌍 Timezone
 
 ### After Installation
 
 ```bash
-# Link WhatsApp (scan QR code)
-openclaw whatsapp link
+# Link your messaging channel (e.g., WhatsApp, Telegram, Slack)
+openclaw whatsapp link    # For WhatsApp (scan QR code)
+# Or configure Telegram/Slack — see OpenClaw docs for other channels
 
 # Check status
 openclaw status
@@ -264,7 +271,7 @@ openclaw gateway logs
 
 ### Send Your First Command
 
-Open WhatsApp and message your bot:
+Open your messaging channel (WhatsApp, Telegram, Slack, etc.) and message your bot:
 
 > "Hello! What can you do?"
 
@@ -274,7 +281,7 @@ Open WhatsApp and message your bot:
 
 ### Basic Setup (AI Assistant Only)
 
-Just the Pi — chat via WhatsApp, no device control.
+Just the Pi — chat via your preferred channel (WhatsApp, Telegram, Slack, etc.), no device control.
 
 ```
 ┌─────────────┐

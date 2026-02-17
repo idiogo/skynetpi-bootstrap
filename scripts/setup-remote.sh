@@ -22,4 +22,4 @@ cd skynetpi-bootstrap
 ./install.sh --name "$BOT_NAME" --owner "$OWNER_NAME" --phone "$OWNER_PHONE" --api-key "$API_KEY" --skip-prompts
 
 echo ""
-echo "🎉 Done! Now run: openclaw whatsapp link"
+echo "🎉 Done! Now link a messaging channel (e.g., openclaw whatsapp link)"

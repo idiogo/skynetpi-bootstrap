@@ -40,7 +40,7 @@ while [[ $# -gt 0 ]]; do
             echo "Options:"
             echo "  --name NAME        Bot name (default: SkynetPi)"
             echo "  --owner NAME       Owner's name"
-            echo "  --phone PHONE      Owner's WhatsApp number (+5511...)"
+            echo "  --phone PHONE      Owner's phone number for messaging channel (+5511...)"
             echo "  --api-key KEY      Anthropic API key"
             echo "  --timezone TZ      Timezone (default: America/Sao_Paulo)"
             echo "  --skip-prompts     Don't ask questions (use defaults/args)"
@@ -92,7 +92,7 @@ echo ""
 
 prompt BOT_NAME "Bot name" "$DEFAULT_BOT_NAME"
 prompt OWNER_NAME "Your name" ""
-prompt OWNER_PHONE "Your WhatsApp number (e.g., +5511999999999)" ""
+prompt OWNER_PHONE "Your phone number for messaging (e.g., +5511999999999)" ""
 prompt API_KEY "Anthropic API key (sk-ant-...)" "" true
 prompt TIMEZONE "Timezone" "$DEFAULT_TIMEZONE"
 
@@ -171,7 +171,7 @@ cat > "$WORKSPACE/USER.md" << USER
 - **What to call them:** $(echo $OWNER_NAME | cut -d' ' -f1)
 - **Pronouns:** (a definir)
 - **Timezone:** $TIMEZONE
-- **WhatsApp:** $OWNER_PHONE
+- **Phone:** $OWNER_PHONE
 USER
 
 # Generate initial memory
@@ -206,7 +206,7 @@ gateway:
   # Workspace
   workspace: $WORKSPACE
   
-  # WhatsApp
+  # Messaging channel (WhatsApp by default — see docs for Telegram/Slack/etc.)
   whatsapp:
     enabled: true
     ownerNumbers:
@@ -271,11 +271,13 @@ echo -e "${GREEN}║   ✅ Installation complete!                               
 echo -e "${GREEN}║                                                           ║${NC}"
 echo -e "${GREEN}╚═══════════════════════════════════════════════════════════╝${NC}"
 echo ""
-echo -e "${YELLOW}📱 Next step: Link WhatsApp${NC}"
+echo -e "${YELLOW}📱 Next step: Link a messaging channel${NC}"
 echo ""
-echo "   Run this command and scan the QR code with WhatsApp:"
+echo "   For WhatsApp, run this command and scan the QR code:"
 echo ""
 echo -e "   ${BLUE}openclaw whatsapp link${NC}"
+echo ""
+echo "   For Telegram, Slack, or other channels, see: https://docs.openclaw.ai"
 echo ""
 echo "   After linking, send a message to your bot!"
 echo ""
