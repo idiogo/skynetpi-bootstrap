@@ -264,7 +264,8 @@ if [ ! -d "$HOME/ram-kvm-ai" ]; then
     git clone https://github.com/idiogo/ram-kvm-ai.git "$HOME/ram-kvm-ai"
 fi
 cd "$HOME/ram-kvm-ai"
-pip install -q -r requirements.txt 2>/dev/null || pip install anthropic opencv-python numpy
+python3 -m venv "$HOME/ram-kvm-ai/.venv"
+"$HOME/ram-kvm-ai/.venv/bin/pip" install -q -r requirements.txt 2>/dev/null || "$HOME/ram-kvm-ai/.venv/bin/pip" install anthropic opencv-python numpy
 echo "   RAM KVM AI installed at ~/ram-kvm-ai"
 
 # Step 7: Setup systemd service
