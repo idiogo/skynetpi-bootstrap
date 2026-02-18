@@ -231,16 +231,6 @@ Inspired by John Boyd's **[OODA Loop](https://en.wikipedia.org/wiki/OODA_loop)**
 
 ## 📦 Quick Start
 
-### 🎬 Video Walkthrough
-
-<div align="center">
-
-[![How to Install SkynetPi](https://img.youtube.com/vi/pF1PJI_awSQ/maxresdefault.jpg)](https://youtu.be/pF1PJI_awSQ)
-
-*▶️ Watch: Full installation guide — from unboxing to first command*
-
-</div>
-
 ### Prerequisites
 
 - Raspberry Pi 5 (4GB+ recommended)
